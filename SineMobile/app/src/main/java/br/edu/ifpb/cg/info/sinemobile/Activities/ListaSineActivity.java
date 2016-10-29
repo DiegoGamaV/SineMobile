@@ -23,14 +23,18 @@ public class ListaSineActivity extends AppCompatActivity {
         ListaSineAsyncTask processo = new ListaSineAsyncTask();
         ArrayList<Sine> listaSine = new ArrayList<Sine>();
         try {
+            Log.e("ListaSineAsyncTask", "Erro na chamada do método");
             listaSine = processo.execute().get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
+        Log.e("ListaSineAsyncTask", "Erro na construção do Adapter");
         ArrayAdapter<Sine> adaptador = new ArrayAdapter<Sine> (this, android.R.layout.simple_list_item_1, listaSine);
+        Log.e("ListaSineAsyncTask", "Erro na construção na adaptação do ListView");
         listViewSine.setAdapter(adaptador);
+        Log.e("ListaSineAsyncTask", "Tudo ocorreu bem");
     }
 
     public void voltar1(View view){
