@@ -25,14 +25,17 @@ public class ListaSineAsyncTask extends AsyncTask<String, Void, ArrayList<Sine>>
         try {
             URL url = new URL("http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest/emprego/");
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
+            Log.e("ListaSineAsyncTask", "Erro na conexão");
             conexao.connect();
             InputStream resposta;
             resposta = conexao.getInputStream();
             JsonReader leitor = new JsonReader (new InputStreamReader(resposta, "UTF-8"));
+            Log.e("ListaSineAsyncTask", "Erro no parsing");
 
             leitor.beginArray();
             while (leitor.hasNext()){
                 listaSine.add(converterSine(leitor));
+                Log.e("ListaSineAsyncTask", "Erro no preenchimento da lista");
             }
             leitor.endArray();
         } catch (MalformedURLException e) {
@@ -91,11 +94,13 @@ public class ListaSineAsyncTask extends AsyncTask<String, Void, ArrayList<Sine>>
                 reader.skipValue();
         }
         reader.endObject();
+        Log.e("ListaSineAsyncTask", "Erro na construção do objeto");
         return sine;
     }
 
     public void onPostExecute(ArrayList<Sine> result){
         super.onPostExecute(result);
+        Log.e("ListaSineAsyncTask", "Erro no onPostExecute");
     }
 
 }
