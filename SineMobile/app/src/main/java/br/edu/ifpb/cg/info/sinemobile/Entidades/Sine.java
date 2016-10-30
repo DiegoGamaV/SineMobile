@@ -110,18 +110,9 @@ public class Sine {
 
     @Override
     public String toString() {
-        return "\n Sine\n" +
-                "\n Código do Posto: " + codPosto + '\'' +
-                "\n Nome: " + nome + '\'' +
-                "\n Entidade Conveniada: " + entidadeConveniada + '\'' +
-                "\n Endereço: " + endereco + '\'' +
-                "\n Bairro: " + bairro + '\'' +
-                "\n Cep: " + cep + '\'' +
-                "\n Telefone: " + telefone + '\'' +
-                "\n Município: " + municipio + '\'' +
-                "\n UF: " + uf + '\'' +
-                "\n Latitude: " + latitude +
-                "\n Longitude: " + longitude;
+        return "Código do posto: " + getCodPosto() + "\n" +
+                "Nome: " + getNome() + "\n" +
+                "Entidade Conveniada: " + getEntidadeConveniada() + "\n" +
+                "Estado: " + getUf();
     }
 }
-
