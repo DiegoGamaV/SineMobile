@@ -21,7 +21,7 @@ import br.edu.ifpb.cg.info.sinemobile.Entidades.Sine;
 public class ListaSineAsyncTask extends AsyncTask<String, Void, List<Sine>> {
     @Override
     protected List<Sine> doInBackground(String... strings){
-        List<Sine> sineRegiao = new ArrayList<Sine>();
+        List<Sine> listaSine = new ArrayList<Sine>();
 
         try {
             URL url = new URL("http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest/emprego/");
@@ -36,7 +36,7 @@ public class ListaSineAsyncTask extends AsyncTask<String, Void, List<Sine>> {
 
             leitor.beginArray();
             while (leitor.hasNext()){
-                sineRegiao.add(converterSine(leitor));
+                listaSine.add(converterSine(leitor));
             }
             leitor.endArray();
         } catch (MalformedURLException e) {
@@ -48,7 +48,7 @@ public class ListaSineAsyncTask extends AsyncTask<String, Void, List<Sine>> {
         }
 
 
-        return sineRegiao;
+        return listaSine;
     }
 
     public Sine converterSine(JsonReader reader) throws IOException {
