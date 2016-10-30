@@ -12,13 +12,16 @@ import br.edu.ifpb.cg.info.sinemobile.AsyncTask.SineAsyncTask;
 import br.edu.ifpb.cg.info.sinemobile.Entidades.Sine;
 import br.edu.ifpb.cg.info.sinemobile.R;
 
+
 public class ListaSineActivity extends AppCompatActivity {
+
 
     ListView lvSines;
     List<Sine> listaSine;
     ArrayAdapter<Sine> adaptador;
 
     protected void onCreate(Bundle savedInstanceState){
+        Sine sine = new Sine();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_sine);
 
@@ -35,6 +38,15 @@ public class ListaSineActivity extends AppCompatActivity {
 
         adaptador = new ArrayAdapter<Sine> (this, android.R.layout.simple_list_item_1, listaSine);
         lvSines.setAdapter(adaptador);
+
+       lvSines.setOnItemClickListener(this); // Clique no item
+    }
+    // Código para trabalhar com o item que foi clicado
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) { // coloca oq onde tem a interrogação??
+
+        Toast.makeText(getApplicationContext(),"selecionada foi: -"+ sine.toString();,Toast.LENGTH_LONG).show();
+
+
     }
 
 }
