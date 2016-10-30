@@ -1,27 +1,19 @@
 package br.edu.ifpb.cg.info.sinemobile.Activities;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-import br.edu.ifpb.cg.info.sinemobile.AsyncTask.SinesRegiaoAsyncTask;
-import br.edu.ifpb.cg.info.sinemobile.AsyncTask.SinesRegiaoAsyncTask;
+import br.edu.ifpb.cg.info.sinemobile.AsyncTask.SineAsyncTask;
 import br.edu.ifpb.cg.info.sinemobile.Entidades.Sine;
 import br.edu.ifpb.cg.info.sinemobile.R;
 
 public class SineRegiaoActivity extends Activity {
 
     ListView lvSinesProximos;
-    Button btVoltar;
     List<Sine> sineRegiao;
     ArrayAdapter<Sine> adaptador;
 
@@ -31,11 +23,10 @@ public class SineRegiaoActivity extends Activity {
         setContentView(R.layout.activity_sine_regiao);
 
         lvSinesProximos = (ListView) findViewById(R.id.lvSinesProximos);
-        btVoltar = (Button) findViewById(R.id.btVoltar);
-        SinesRegiaoAsyncTask processo = new SinesRegiaoAsyncTask();
+        SineAsyncTask processo = new SineAsyncTask();
 
         try {
-            sineRegiao = processo.execute().get();
+            sineRegiao = processo.execute("http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest/emprego/latitude/-7.242662/longitude/-35.9716057/raio/100").get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {

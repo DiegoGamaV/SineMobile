@@ -16,14 +16,15 @@ import java.util.List;
 import br.edu.ifpb.cg.info.sinemobile.Entidades.Sine;
 
 /**
- * Created by Rayla on 29/10/2016.
+ * Created by Diego A. Gama e Rayla Medeiros on 29/10/2016.
  */
-public class SinesRegiaoAsyncTask extends AsyncTask<String, Void, List<Sine>>{
-    protected List<Sine> doInBackground(String... strings){
-        List<Sine> sineRegiao = new ArrayList<Sine>();
+public class SineAsyncTask extends AsyncTask<String, Void, List<Sine>> {
+    @Override
+    protected List<Sine> doInBackground(String... params){
+        List<Sine> listaSine = new ArrayList<Sine>();
 
         try {
-            URL url = new URL("http://mobile-aceite.tcu.gov.br/mapa-da-saude/rest/emprego/latitude/-7.242662/longitude/-35.9716057/raio/100");
+            URL url = new URL(params[0]);
             HttpURLConnection conexao = (HttpURLConnection) url.openConnection();
             conexao.setRequestMethod("GET");
             conexao.setRequestProperty("Content-Type", "application/json");
@@ -35,7 +36,7 @@ public class SinesRegiaoAsyncTask extends AsyncTask<String, Void, List<Sine>>{
 
             leitor.beginArray();
             while (leitor.hasNext()){
-                sineRegiao.add(converterSine(leitor));
+                listaSine.add(converterSine(leitor));
             }
             leitor.endArray();
         } catch (MalformedURLException e) {
@@ -47,7 +48,7 @@ public class SinesRegiaoAsyncTask extends AsyncTask<String, Void, List<Sine>>{
         }
 
 
-        return sineRegiao;
+        return listaSine;
     }
 
     public Sine converterSine(JsonReader reader) throws IOException {
@@ -100,4 +101,5 @@ public class SinesRegiaoAsyncTask extends AsyncTask<String, Void, List<Sine>>{
     public void onPostExecute(List<Sine> result){
         super.onPostExecute(result);
     }
+
 }

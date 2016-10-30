@@ -107,5 +107,21 @@ public class Sine {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
+
+    @Override
+    public String toString() {
+        return "\n Sine\n" +
+                "\n Código do Posto: " + codPosto + '\'' +
+                "\n Nome: " + nome + '\'' +
+                "\n Entidade Conveniada: " + entidadeConveniada + '\'' +
+                "\n Endereço: " + endereco + '\'' +
+                "\n Bairro: " + bairro + '\'' +
+                "\n Cep: " + cep + '\'' +
+                "\n Telefone: " + telefone + '\'' +
+                "\n Município: " + municipio + '\'' +
+                "\n UF: " + uf + '\'' +
+                "\n Latitude: " + latitude +
+                "\n Longitude: " + longitude;
+    }
 }
 
