@@ -15,17 +15,15 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/botao1"
         android:text="Listar Sines"
-        android:onClick="irListaSine"
+        android:onClick="listarSines"
         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/botao2"
         android:text="Sines Próximos"
-        android:onClick="irSineRegiao"
+        android:onClick="sinesRegiao"
         />
 
 </LinearLayout>

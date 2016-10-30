@@ -18,7 +18,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activities.ListaSineActivity" />
-        <activity android:name=".Activities.SineRegiaoActivity"></activity>
+        <activity android:name=".Activities.SineRegiaoActivity" />
     </application>
 
 </manifest>
