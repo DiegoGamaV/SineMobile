@@ -26,7 +26,7 @@ public class MainActivity extends Activity {
     }
 
     public void sinesRegiao(View view){
-        Intent intent = new Intent (MainActivity.this, SineRegiaoActivity.class);
+        Intent intent = new Intent (MainActivity.this, MapsActivity.class);
         String chave = "";
         intent.putExtra(chave, "");
         startActivity(intent);

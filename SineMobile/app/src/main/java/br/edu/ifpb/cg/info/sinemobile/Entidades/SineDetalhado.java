@@ -16,7 +16,7 @@ public class SineDetalhado {
     private String endereco;
     private String telefone;
 
-    public SineDetalhado(){
+    public SineDetalhado() {
 
     }
 
