@@ -57,7 +57,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         for (int i = 0; i < sinesProximos.size(); i++){
             Double latitude = Double.valueOf(sinesProximos.get(i).getLatitude());
-            Double longitude = Double.valueOf(sinesProximos.get(i).getLongitude())
+            Double longitude = Double.valueOf(sinesProximos.get(i).getLongitude());
             LatLng ponto = new LatLng(latitude, longitude);
             mMap.addMarker(new MarkerOptions().position(ponto).title(sinesProximos.get(i).getNome()));
         }
